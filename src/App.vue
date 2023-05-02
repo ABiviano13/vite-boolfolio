@@ -3,7 +3,7 @@ import Projects from './components/Projects.vue';
 
 export default{
   components: {
-    Projects
+    Projects,
   }
 }
 </script>
