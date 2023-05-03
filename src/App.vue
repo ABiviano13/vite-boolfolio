@@ -1,18 +1,32 @@
 <script>
-import Projects from './components/Projects.vue';
+// import Projects from './components/Projects.vue';
 
 export default{
-  components: {
-    Projects,
-  }
+  // components: {
+  //   Projects,
+  // }
 }
 </script>
 
 <template>
 
-  <div class="container">
+  <!-- <div class="container">
     <Projects />
-  </div>
+  </div> -->
+
+  <header>
+    sono header!!!
+  </header>
+
+  <main>
+    <!-- router-view non bisogna importarlo poichè è globale -->
+    <router-view></router-view> 
+  </main>
+
+
+  <footer>
+    sono footer!!!
+  </footer>
 
 </template>
 
