@@ -1,32 +1,19 @@
 <script>
-// import Projects from './components/Projects.vue';
+import LayoutDefault from './layouts/LayoutsDefault.vue';
 
 export default{
-  // components: {
-  //   Projects,
-  // }
+  components: {
+    LayoutDefault
+  }
 }
 </script>
 
 <template>
+  <LayoutDefault>
 
-  <!-- <div class="container">
-    <Projects />
-  </div> -->
+    <router-view></router-view>
 
-  <header>
-    sono header!!!
-  </header>
-
-  <main>
-    <!-- router-view non bisogna importarlo poichè è globale -->
-    <router-view></router-view> 
-  </main>
-
-
-  <footer>
-    sono footer!!!
-  </footer>
+  </LayoutDefault>
 
 </template>
 
