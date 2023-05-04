@@ -13,21 +13,25 @@ export default {
 
 <template>
 
-<ul class="project_card">
-    <li>
-        <h2>
-            {{ project.title }}
-        </h2>
-    </li>
-    <li>
-        <p v-if="project.content">
-            {{ project.content }}
-        </p>
-        <p class="null_content" v-else>
-            Nessun contenuto.
-        </p>
-    </li>
-</ul>
+<router-link :to="{ name: 'projects.show', params: { slug: project.slug } }">
+
+    <ul class="project_card">
+        <li>
+            <h2>
+                {{ project.title }}
+            </h2>
+        </li>
+        <li>
+            <p v-if="project.content">
+                {{ project.content }}
+            </p>
+            <p class="null_content" v-else>
+                Nessun contenuto.
+            </p>
+        </li>
+    </ul>
+
+</router-link>
 
 
 </template>
