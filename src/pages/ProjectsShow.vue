@@ -11,32 +11,20 @@ export default {
     data() {
       return {
         project: null,
-        loading: true
       }
     },
     props: ['slug'],
-    computed: {
-      relatedProjects() {
-        if(this.project.relatedProjects) {
-          return this.project.relatedProjects
-        }
-
-        return []
-      }
-    },
     methods: {
       fetchProject(slug) {
 
-        this.loading = true
-
-        axios.get(`http://127.0.0.1:8000/api/projects/${ slug }`)
+        axios.get(`http://127.0.0.1:8000/api/projects/${slug}`)
         .then(res => {
           const { success, project } = res.data
 
           if(success) {
             this.project = project
           } else {
-            console.log(err)
+            console.log('project non definito')
           }
 
         })
@@ -66,32 +54,19 @@ export default {
 </script>
 
 <template>
-    <DefaultLayout>
-        <template v-if="loading === false">
-            <div class="container py-2">
-                <h1 class="font-bold">
-                    {{ project.title }}
-                </h1>
-                <h2>
-                    {{  project.user.name }}
-                </h2>
-                <div v-html="project.content"></div>
-            </div>
-
-
-            <div class="container py-8" v-if="relatedProjects.length > 0">
-                <ul class="grid grid-cols-3 gap-8">
-                    <li v-for="related in relatedProjects" :key="related.id">
-                        <ProjectCard :project="related" />
-                    </li>
-                </ul>
-            </div>
-
-        </template>
-        <div class="animate-pulse" v-else>
-            ...Loading
+    <div v-if="project">
+        <div class="container py-2">
+            <h1 class="font-bold">
+                {{ project.title }}
+            </h1>
+            <div v-html="project.content"></div>
         </div>
-    </DefaultLayout>
+
+
+    </div>
+    <div class="animate-pulse" v-else>
+        ...Loading
+    </div>
 
 </template>
 

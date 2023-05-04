@@ -45,7 +45,7 @@ export default {
 }
 
 .project_card{
-    width: 20%;
+    width: 30%;
     background-color: rgba(217, 157, 242, 0.437);
     border-radius: 20px;
     padding: 10px;
