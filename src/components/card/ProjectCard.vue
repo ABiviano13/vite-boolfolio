@@ -13,23 +13,22 @@ export default {
 
 <template>
 
-<router-link :to="{ name: 'projects.show', params: { slug: project.slug } }">
+<router-link :to="{ name: 'projects.show', params: { slug: project.slug } }"  class="project_card" >
 
-    <ul class="project_card">
-        <li>
-            <h2>
-                {{ project.title }}
-            </h2>
-        </li>
-        <li>
+    <div>
+        <h2>
+            {{ project.title }}
+        </h2>
+        <div>
             <p v-if="project.content">
                 {{ project.content }}
             </p>
             <p class="null_content" v-else>
                 Nessun contenuto.
             </p>
-        </li>
-    </ul>
+        </div>
+
+    </div>
 
 </router-link>
 
@@ -45,7 +44,6 @@ export default {
 }
 
 .project_card{
-    width: 30%;
     background-color: rgba(217, 157, 242, 0.437);
     border-radius: 20px;
     padding: 10px;

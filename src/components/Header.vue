@@ -24,8 +24,9 @@
 
 <style scoped>
 
-.container{
-    background-color: cornsilk;
+header{
+    background-color: rgb(115, 115, 115);
+    color: rgba(217, 157, 242, 0.437);
 }
 
 .row{

@@ -9,7 +9,7 @@ import ProjectsShow from './pages/ProjectsShow.vue'
 //creiamo i router
 
 const history = createWebHistory()
-console.log('history: ', history)
+// console.log('history: ', history)
 
 const router = createRouter({
     history,
@@ -33,6 +33,7 @@ const router = createRouter({
 			path: '/blog/:slug',
 			name: 'projects.show',
 			component: ProjectsShow,
+            props: true
 		}
     ]
 })

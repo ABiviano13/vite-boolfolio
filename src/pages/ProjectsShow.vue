@@ -19,6 +19,7 @@ export default {
 
         axios.get(`http://127.0.0.1:8000/api/projects/${slug}`)
         .then(res => {
+          console.log(res)
           const { success, project } = res.data
 
           if(success) {
@@ -31,42 +32,36 @@ export default {
         .catch(err => {
           console.log(err)
         })
-        .finally(() => {
-          
-          this.loading = false
-
-        }) 
       }
 
     },
     created() {
       this.fetchProject(this.slug)
-    },
-    beforeRouteUpdate(to) {
-      const newSlug = to.params.slug
-      console.log(newSlug)
-      
-      this.fetchProject(newSlug)
-
     }
     
   }
+
 </script>
 
 <template>
-    <div v-if="project">
-        <div class="container py-2">
-            <h1 class="font-bold">
-                {{ project.title }}
-            </h1>
-            <div v-html="project.content"></div>
-        </div>
-
-
+  <div v-if="project">
+    <div class="container py-2">
+      <h1>
+        {{ project.title }}
+      </h1>
+      <div>
+        <p v-if="project.content">
+          {{ project.content }}
+        </p>
+        <p class="null_content" v-else>
+          Nessun contenuto.
+        </p>
+      </div>
     </div>
-    <div class="animate-pulse" v-else>
-        ...Loading
-    </div>
+  </div>
+  <div v-else>
+    ...Loading
+  </div>
 
 </template>
 

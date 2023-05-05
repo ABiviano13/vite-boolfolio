@@ -31,6 +31,8 @@ export default {
         this.fetchProjects()
     }
 }
+
+
 </script>
 
 <template>
@@ -40,7 +42,7 @@ export default {
     </h1>
 
     <div class="projects">
-        <ProjectCard v-for="project in projects" :project="project" :key="project.id"  />
+        <ProjectCard v-for="project in projects" :project="project" :key="project.id" class="project_card" />
     </div>
 
 </template>
@@ -50,6 +52,12 @@ export default {
 .projects{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project_card{
+    width: 25%;
 }
 
 </style>
